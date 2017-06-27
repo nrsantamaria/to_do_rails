@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  belongs_to :list
+  belongs_to :list, dependent: :destroy
   validates :description, :presence => true
 
   scope :not_done, -> { where(done: false)}
